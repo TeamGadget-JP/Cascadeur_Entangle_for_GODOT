@@ -107,8 +107,8 @@ Team Gadget Youtube<br>
 https://www.youtube.com/channel/UCj9OYwzMAIgYAeVkTV4wczw<br>
 
 # 免責事項 <br>
-CEUはTeamGadgetによる独立したプロジェクトです。<br>
+CEGはTeamGadgetによる独立したプロジェクトです。<br>
 CascadeurはNekkiの商標または財産です。 <br> 
-Unityはunity technologies incの商標または財産です。<br>
+GODOTはGodot Foundationの商標または財産です。<br>
 
-本プロジェクトは、Nekkiまたはunity technologies incによる公式製品ではなく、承認、提携、スポンサー提供、または公式サポートを受けたものではありません。<br>
+本プロジェクトは、NekkiまたはGodot Foundationによる公式製品ではなく、承認、提携、スポンサー提供、または公式サポートを受けたものではありません。<br>
