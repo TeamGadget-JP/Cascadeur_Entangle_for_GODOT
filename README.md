@@ -65,8 +65,8 @@ step1-1: 人型リグは双方とも必ずAポーズもしくはTポーズであ
 step1-2: 非人型リグでは双方ともレスト・ポーズであることをご確認ください<br>
 step2: Cascadeur側`Commands -> CEG_Sender_v1`を選択して通信開始。<br>
 step3: GODOT側`Scene`に空の`NODE(白丸)`を作成して`CEG_System_v1.cs`をアタッチ<br>
-step4: インスペクターの`Target Skeleton`にそのキャラクターのボーン`Skeleton3D`をセットしてください<br>
-step5: GODOT側`Scene`内の同期したいキャラクターに`CEG_Avatar_v1.cs`をアタッチ<br>
+step4: GODOT側`Scene`内の同期したいキャラクターに`CEG_Avatar_v1.cs`をアタッチ<br>
+step5: インスペクターの`Target Skeleton`にそのキャラクターのボーン`Skeleton3D`をセットしてください<br>
 step6: GODOT UI 右上部の金槌アイコンを押すか`Alt+B`でコンパイルしてください<br>
 step7: `CEG_System_v1.cs`をアタッチした`NODE(白丸)`のインスペクターで`Connect To Cascadeur`トグルをオン<br>
 これで同期開始します。<br>
