@@ -98,6 +98,12 @@ Sync is now complete!
 6. In Cascadeur, disable timeline looping and play the animation. The baking process will begin.
 7. To perform a retake, either select and delete all existing keyframes or configure a new animation name and bake again.
 
+# Design Philosophy<br>
+TeamGadget tools are designed to assist your workflow—not to become part of it.<br>
+Once synchronization has served its purpose, simply bake the animation,<br> 
+detach the synchronization components, and continue working with your project's native assets.<br>
+The best synchronization tool is the one you no longer need.<br>
+
 **TeamGadget YouTube Channel:**
 https://www.youtube.com/channel/UCj9OYwzMAIgYAeVkTV4wczw
 
