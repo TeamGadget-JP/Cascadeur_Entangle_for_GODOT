@@ -17,8 +17,97 @@ Automatic correction of coordinate-system differences using rest-pose quaternion
 These four technologies form the foundation shared by every TeamGadget synchronization project, including CEU, CEB, CEG and future tools.
 
 # English <br>
-# Cascadeur Entangle for Unity (CEU) Beta Test<br>
+# Cascadeur Entangle for GODOT (CEG) Beta Test<br>
+CEG is a tool designed to support creators in their character animation production workflow<br>
+by enabling real-time synchronization between characters in Godot Engine and Cascadeur.<br>
 
+# Development & Runtime Environment
+- **Windows Only** (uses Windows API internally)
+- **Tested Engine version:** Godot Engine v4.7.1.stable.mono.official (.NET)
+- **Tested Cascadeur version:** Cascadeur Pro 2026.1.3
+
+# CEG Overview
+1. Real-time synchronization.
+2. Rig-Agnostic Synchronization.
+3. Editor Mode and Run Project runtime synchronization.
+4. Simultaneous multi-character synchronization.
+5. Improved robustness by assigning a dedicated local port to each character.
+6. Supports motions with root bone movement.
+7. Built-in background offline baking.
+
+# What is Rig-Agnostic Synchronization? (Verification Stage)
+By dynamically handshaking the bone hierarchy and bone names from Godot to Cascadeur, 
+the goal is to eliminate retargeting work as much as possible. In theory, 
+any character that can be imported into Godot and Cascadeur and successfully 
+rigged should be able to synchronize.
+
+Whether it is a humanoid, quadruped, mechanical character, multi-legged creature, 
+monster, or any other character that can be rigged in Cascadeur, 
+it is expected that almost all of them can be synchronized.
+
+# Local Port Assignment
+- `8980` Reserved for the system
+- `8981` Character 1
+- `8982` Character 2
+- `...`
+- `8989` Reserved for offline baking
+
+## Installation Steps
+1. Place `CEG_Sender_v1.pyc` into the Cascadeur Python plugin folder:
+   `[Cascadeur installation folder]\resources\scripts\python\commands\`
+2. Import `CEG_System_v1.cs` and `CEG_Avatar_v1.cs` into your Godot project's `FileSystem`.
+
+# Usage
+- **Step 1:** Import the exact same character (identical skeleton structure and bone naming) into both Godot and Cascadeur.
+  - **Step 1-1:** For humanoid rigs, it is an absolute requirement that the character is set to either an **A-pose** or **T-pose** in both applications.
+  - **Step 1-2:** For non-humanoid rigs, ensure that the character is set to its **Rest Pose** in both applications.
+- **Step 2:** In Cascadeur, select `Commands -> CEG_Sender_v1` to start the connection.
+- **Step 3:** In your Godot `Scene` tree, create an empty `Node` (the standard white circle icon) and attach the `CEG_System_v1.cs` script to it.
+- **Step 4:** Attach the `CEG_Avatar_v1.cs` script to the target character inside your Godot `Scene` tree.
+- **Step 5:** In the Godot Inspector, set your character's `Skeleton3D` node into the `Target Skeleton` field.
+- **Step 6:** Click the hammer icon in the top right of the Godot UI, or press `Alt + B` to build/compile the project.
+- **Step 7:** Select the `Node` containing `CEG_System_v1.cs`, and toggle the `Connect To Cascadeur` property to **ON** in the Inspector. 
+Sync is now complete!
+
+# Troubleshooting
+1. Double-check that your character’s `Target Port` number is assigned correctly.
+2. For the character using port `8981`, no prefix is attached. Leave the `Cascadeur Prefix` field completely blank.
+3. For characters assigned to port `8982` and onwards, you must manually enter the prefix (e.g., `character1:`, `character2:`, etc.) into the `Cascadeur Prefix` field.
+4. Always establish the connection from **Cascadeur first**, then from the **Godot side**.
+5. Moving the Godot timeline will cause the character to exhibit a "strobing" effect. **This is normal and expected behavior.** This occurs because the timeline's inherent priority and authority over assets override the real-time stream—a behavior common to almost all DCC tools and game engines. Once you run the offline bake and turn off real-time synchronization, this issue will resolve. This is a system-side limitation, so real-time streaming and timeline scrubbing cannot smoothly coexist at this time.
+6. Ensure that the bone hierarchy structure and naming convention match exactly between your Godot character and Cascadeur character.
+7. To optimize network communication and maintain high-performance streaming, the maximum number of synchronized bones per character is capped at **255** (bone IDs 0–254). Characters with more bones can still be synchronized, but any bones exceeding this limit will be ignored.
+8. **If the character deforms/collapses upon starting synchronization:** This indicates that the Rig-Agnostic pipeline failed to resolve your rig. Since this version of CEG does not include manual alignment/offset features, your only option is to return to your character production/rigging workflow and re-verify your bone orientations and setups. If there is enough demand, we will look into adding manual adjustment features in future version updates.
+
+# Setting Up Multiple Characters in Cascadeur
+**Example: Setting up two characters**
+1. Create a scene, then import and rig the first character as usual.
+2. Create another separate scene for the second character. Import and rig the second character as usual.
+3. Save and close the scene containing the second character.
+4. Return to the first character's scene, then select `File -> Import -> Import Scene To Current...` and import the second scene.
+5. The second character's bone names will automatically receive the `character1:` prefix.
+6. Additional characters can be added sequentially using the same method.
+
+# Offline Baking
+1. First, create an `AnimationPlayer` node as a child of your character.
+2. You can use the default `AnimationPlayer` generated during character import, but you must unlock it first.
+3. In the character's Inspector, assign the target node to the `Target Anim Player` field.
+4. In `Bake Animation Name`, type the exact name of the new animation you created in your `AnimationPlayer`.
+5. Toggle `Enable Baking` to **ON**, and set the `Bake Interval` to `0.033` (this provides a standard 1:1 frame bake for 30fps). Setting it to `0.066` will bake at half-rate; adjust this according to your specific production needs.
+6. In Cascadeur, disable timeline looping and play the animation. The baking process will begin.
+7. To perform a retake, either select and delete all existing keyframes or configure a new animation name and bake again.
+
+**TeamGadget YouTube Channel:**
+https://www.youtube.com/channel/UCj9OYwzMAIgYAeVkTV4wczw
+
+# Disclaimer
+CEG is an independent project developed by TeamGadget.
+Cascadeur is a trademark and/or property of Nekki.  
+Godot Engine is a trademark and/or property of the Godot Foundation.
+
+This project is not affiliated with, endorsed by, sponsored by, or officially supported by Nekki or the Godot Foundation.
+
+---
 
 # 日本語 <br>
 # Cascadeur Entangle for GODOT (CEG) βテスト<br>
