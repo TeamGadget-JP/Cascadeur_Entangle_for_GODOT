@@ -59,6 +59,9 @@ it is expected that almost all of them can be synchronized.
 2. Import `CEG_System_v1.cs` and `CEG_Avatar_v1.cs` into your Godot project's `FileSystem`.
 
 # Usage
+CEG Characetr Setup
+https://youtu.be/6Omvo205NJc
+
 - **Step 1:** Import the exact same character (identical skeleton structure and bone naming) into both Godot and Cascadeur.
   - **Step 1-1:** For humanoid rigs, it is an absolute requirement that the character is set to either an **A-pose** or **T-pose** in both applications.
   - **Step 1-2:** For non-humanoid rigs, ensure that the character is set to its **Rest Pose** in both applications.
@@ -165,6 +168,9 @@ GODOTから動的にボーン階層・名称をCascadeurとハンドシェイク
 2. `CEG_System_v1.cs``CEG_Avatar_v1.cs`をGODOTの貴方のプロジェクトの`FileSystem`へインポート<br>
 
 # 使用方法 <br>
+CEG Characetr Setup
+https://youtu.be/6Omvo205NJc
+
 step1: 同じ骨格構造・骨格命名を持つキャラクターを双方へインポート<br>
 step1-1: 人型リグは双方とも必ずAポーズもしくはTポーズであることが絶対条件です<br>
 step1-2: 非人型リグでは双方ともレスト・ポーズであることをご確認ください<br>
