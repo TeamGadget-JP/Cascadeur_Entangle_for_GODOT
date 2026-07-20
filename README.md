@@ -21,10 +21,10 @@ These four technologies form the foundation shared by every TeamGadget synchroni
 CEG is a tool designed to support creators in their character animation production workflow<br>
 by enabling real-time synchronization between characters in Godot Engine and Cascadeur.<br>
 
-# Development & Runtime Environment
-- **Windows Only** (uses Windows API internally)
-- **Tested Engine version:** Godot Engine v4.7.1.stable.mono.official (.NET)
-- **Tested Cascadeur version:** Cascadeur Pro 2026.1.3
+# Development & Runtime Environment<br>
+- **Windows Only** (uses Windows API internally)<br>
+- **Tested Engine version:** Godot Engine v4.7.1.stable.mono.official (.NET)<br>
+- **Tested Cascadeur version:** Cascadeur Pro 2026.1.3<br>
 - **It does not work with the free version of Cascadeur.<br>
 
 # CEG Overview
