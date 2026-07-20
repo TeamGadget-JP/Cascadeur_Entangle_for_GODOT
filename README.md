@@ -25,7 +25,7 @@ by enabling real-time synchronization between characters in Godot Engine and Cas
 - **Windows Only** (uses Windows API internally)<br>
 - **Tested Engine version:** Godot Engine v4.7.1.stable.mono.official (.NET)<br>
 - **Tested Cascadeur version:** Cascadeur Pro 2026.1.3<br>
-- **It does not work with the free version of Cascadeur.<br>
+- It does not work with the free version of Cascadeur.<br>
 
 # CEG Overview
 1. Real-time synchronization.
